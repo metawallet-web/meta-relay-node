@@ -17,6 +17,7 @@
     "ethereumjs-abi": "^0.6.8",
     "ethereumjs-util": "^7.0.8",
     "markdown-it": "^11.0.1",
+    "mongodb": "^3.6.4",
     "portal-vue": "^2.1.0",
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.32.7",
