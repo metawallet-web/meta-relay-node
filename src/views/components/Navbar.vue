@@ -8,7 +8,7 @@
         <div class="h-full py-6">
           <a href="/" class="brand w-nav-brand w--current  ">
             <img src="/assets/images/logo.png" height="35"  alt="" class="w-6 m-2 inline">
-            <div class=" text-block-10 inline">Meta Wallet</div>
+            <div class=" text-block-10 inline">Meta Relay</div>
         </a>
        </div>
       </div>
