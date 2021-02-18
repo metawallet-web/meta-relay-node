@@ -1,7 +1,7 @@
 node_modules
 
-relay.config.js
-account.config.js
+config/relay.config.js
+config/account.config.js
 
 
 /public
