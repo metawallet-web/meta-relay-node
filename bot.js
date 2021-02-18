@@ -16,7 +16,7 @@ const accountConfig = require('./config/account.config.json')
 
 var mongoInterface = require('./lib/mongo-interface')
 
-var apiInterface = require('./lib/api-interface')
+var apiServer = require('./lib/api-server')
 
 
 
@@ -29,5 +29,5 @@ async function init(){
 
     var web3 = new Web3()
 
-    await apiInterface.init(web3,mongoInterface)
+    await apiServer.init(web3,mongoInterface)
 }
