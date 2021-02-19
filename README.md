@@ -5,9 +5,11 @@
 
 
  ## TODO: 
- Need to pool for packets and submit them 
+  Make permit packets work 
+  Nice little front end w vue table 
+
  Need to delete old DB data that is super old 
- Need to be able to tell if a packet is valid  
+ 
 
 
 
