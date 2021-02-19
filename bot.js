@@ -2,22 +2,18 @@
 
 
 
-
-var INFURA_ROPSTEN_URL = 'https://ropsten.infura.io/gmXEVo5luMPUGPqg6mhy';
-var INFURA_MAINNET_URL = 'https://mainnet.infura.io/gmXEVo5luMPUGPqg6mhy';
-
  
 
 var Web3 = require('web3')
 
 
-const relayConfig = require('./config/relay.config.json')
-const accountConfig = require('./config/account.config.json')
-
 var mongoInterface = require('./lib/mongo-interface')
 
 var apiServer = require('./lib/api-server')
+var LavaPacketSubmitter = require('./lib/lava-packet-submitter')
 
+const relayConfig = require('./config/relay.config.json')
+const accountConfig = require('./config/account.config.sample.json')
 
 
 init()
@@ -25,9 +21,21 @@ init()
 async function init(){
     console.log('Booting relay node.')
 
+   
+
+
     await mongoInterface.init('metarelay')
 
-    var web3 = new Web3()
+    let web3ProviderUrl = relayConfig.web3Provider
 
-    await apiServer.init(web3,mongoInterface)
+    let web3 = new Web3(web3ProviderUrl)
+
+    let chainId = await web3.eth.getChainId( )
+
+    console.log('Connected to Web3 chainId ',chainId)
+
+    await apiServer.init(web3,chainId,mongoInterface)
+
+    let lavaPacketSubmitter = new LavaPacketSubmitter(web3,chainId,mongoInterface )
+ 
 }

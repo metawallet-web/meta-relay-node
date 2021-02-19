@@ -3,7 +3,7 @@ const abi = require('ethereumjs-abi');
 
 const web3utils = require('web3').utils
 
-export default class EIP712HelperV3{
+module.exports =  class EIP712HelperV3{
 
     // Recursively finds all the dependencies of a type
     static  dependencies(primaryType, types, found = []) {

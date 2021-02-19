@@ -162,7 +162,7 @@ export default class Web3Plug {
     return accounts;
   }
 
- 
+  
 
   getCustomContract(web3, contractABI, contractAddress)
   {

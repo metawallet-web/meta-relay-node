@@ -1,5 +1,8 @@
 {
-    "chainId":"42",
+    "name":"A cool relay node",   
+    "priceOracleURL": null,
+    "minGasPriceWei": 2,
+    "maxGasPriceWei": 6,
     "web3Provider":"https://kovan.infura.io/v3/putyourkeyhere"
     
 }
