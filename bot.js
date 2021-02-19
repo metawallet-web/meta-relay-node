@@ -21,7 +21,7 @@ init()
 async function init(){
     console.log('Booting relay node.')
 
-   
+    let useHTTPS = (relayConfig.useHTTPS == true)
 
 
     await mongoInterface.init('metarelay')
@@ -34,7 +34,7 @@ async function init(){
 
     console.log('Connected to Web3 chainId ',chainId)
 
-    await apiServer.init(web3,chainId,mongoInterface)
+    await apiServer.init(web3,chainId,mongoInterface, useHTTPS)
 
     let lavaPacketSubmitter = new LavaPacketSubmitter(web3,chainId,mongoInterface )
  
