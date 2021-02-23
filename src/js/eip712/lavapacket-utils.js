@@ -102,8 +102,8 @@ export default class LavaPacketUtils {
             ]),
         );
 
-        console.log('meep 1', EIP712HelperV3.structHash('EIP712Domain', typedData.domain, typedData.types))
-        console.log('meep 2', EIP712HelperV3.structHash(typedData.primaryType, typedData.message, typedData.types))
+        //console.log('meep 1', EIP712HelperV3.structHash('EIP712Domain', typedData.domain, typedData.types))
+        //console.log('meep 2', EIP712HelperV3.structHash(typedData.primaryType, typedData.message, typedData.types))
         return typedDataHash;
       }
 
@@ -165,7 +165,7 @@ export default class LavaPacketUtils {
                       { name: "verifyingContract", type: "address" }
                   ],
                   LavaPacket: [
-                      { name: 'methodName', type: 'string' },
+                      { name: 'methodName', type: 'bytes' },
                       { name: 'relayAuthority', type: 'address' },
                       { name: 'from', type: 'address' },
                       { name: 'to', type: 'address' },

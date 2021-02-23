@@ -5,9 +5,9 @@
 
 
  ## TODO: 
+-xdai relay node is not submitting std xfer for some reason? Does not see it as pending.. 
 
-
-  Nice little front end w vue table 
+  BUILD Nice little front end w vue table 
 
  Need to delete DB data that is super old 
  
@@ -25,3 +25,6 @@
 
 ## HOW TO TEST
 npm run dev
+
+
+Socket port is 8443
