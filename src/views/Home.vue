@@ -111,8 +111,10 @@ export default {
   },
   created(){
 
-         let hostname = window.location.hostname
-        let socketUrl = "ws://"+hostname+":8443"
+         let hostname = window.location.host
+        let socketUrl = "wss://"+hostname+":8443"
+
+        console.log('socketUrl',socketUrl)
 
           socket = io.connect(socketUrl, {reconnect: true});
  
