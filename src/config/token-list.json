@@ -1,8 +1,7 @@
 {"networks": {
-  "mainnet":["DAI"],
-    
-  
-    "kovan":[ "TEST" ]
+    "mainnet":["DAI"],
+    "kovan":[ "TEST" ],
+    "xdai":[ "wxdai" , "weth"]
 
   }
 }

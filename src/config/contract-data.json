@@ -8,6 +8,17 @@
     "kovan":{
       "TEST":{"name":"Test Token", "symbol":"TEST", "decimals": 18,  "address":"0x7b3a2c7d65c357fa4ccf4ba93d3c0781b843a4f3", "imgurl":"/assets/images/tokens/dai.png" }, 
       "LavaWallet":{"name":"Lava Wallet", "address":"0xa0c270cbc7c1afb4d39a05131bd2c940c66ece76"}
+    },
+    "xdai":{
+       
+      "LavaWallet":{"name":"Lava Wallet", "address":"0x56398FdFD684b40B17B09BB1Cf826ED93A38C489"},
+      "wxdai":{"name":"wxDai", "address":"0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"},
+      "weth":{"name":"wEth", "address":"0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1"},
+      "zxbtc":{"name":"0xBTC", "address":""},
+
+      
+      
+      
     }
 
   }
