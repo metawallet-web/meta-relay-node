@@ -53,7 +53,17 @@
 
       <section class="hero   "  v-if="connectedToWeb3()==true">
         <div class="hero-body">
-              Relay Data
+            
+
+
+                  <PacketList 
+                  title="Meta Packets"
+                  v-bind:packetsArray="userPacketsArray"
+
+                  />
+
+
+
 
         </div>
       </section>
@@ -75,26 +85,71 @@ import Web3Plug from '../js/web3Plug.js'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import Web3NetButton from './components/Web3NetButton.vue'
+import PacketList from './components/PacketList.vue'
  
+
+import { io } from "socket.io-client";
+
+ var socket;
+ var packetReadTimer;
+
 
 export default {
   name: 'Home',
-  components: {Navbar, Footer,Web3NetButton},
+  components: {Navbar, Footer,Web3NetButton,PacketList},
   data() {
     return {
 		selectedActionAsset: null,
 	 
 		errorMessage:null,
     web3Plug: null,
-    networkName: null
+    networkName: null,
+
+    userPacketsArray: [] 
 
     }
   },
   created(){
 
+         let hostname = window.location.hostname
+        let socketUrl = "ws://"+hostname+":8443"
 
-    
+          socket = io.connect(socketUrl, {reconnect: true});
+ 
+ 
+
+      socket.on("connection", (socket) => {
+        console.log(socket.handshake.query); // prints { x: "42", EIO: "4", transport: "polling" }
+       });
+
+       socket.on("recentPacketHistory" , (data) => {
+          console.log('got recent packet history', data)
+
+          this.userPacketsArray = data.packetsArray
+       });
+
+        packetReadTimer = setInterval(this.updatePacketsArray.bind(this),5000)
+     
   },
+  beforeDestroy(){
+
+    clearInterval(packetReadTimer)
+
+  },
+
+
+  metaInfo() {
+        return { 
+            title: "Meta Relay",
+            meta: [
+                { name: 'description', content:  'Meta Tx Relay'},
+                { property: 'og:title', content: "Meta Tx Relay"} 
+           
+            ]
+        }
+    },
+
+
   methods: {
 
     connectToWeb3(){
@@ -126,6 +181,10 @@ export default {
 
  
           console.log('networkName', this.networkName )
+
+          
+           this.updatePacketsArray()
+
     },
 
     connectedToWeb3(){
@@ -149,6 +208,21 @@ export default {
       console.log('onSelectedAssetCallback', asset )
 
       this.selectedActionAsset = asset
+    },
+
+
+    async updatePacketsArray(){
+      if(!this.web3Plug){
+         
+        return
+      }
+      let accounts = await this.web3Plug.getConnectedAccounts()
+      let publicAddress = accounts[0]
+      console.log('update packets array for ',publicAddress)
+
+
+      //use websockets to grab data from mongo 
+      socket.emit('recentPacketHistory',{publicAddress:publicAddress})
     }
 
 

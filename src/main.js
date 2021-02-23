@@ -3,6 +3,8 @@ import VueTailwind from 'vue-tailwind'
 
 import App from './App.vue'
 import router from './router'
+import VueMeta from 'vue-meta'
+
 
 import './css/main.css'
 import './css/github-markdown.css'
@@ -12,7 +14,7 @@ import './css/whitespace.scss'
 Vue.config.productionTip = false
 
 Vue.use(VueTailwind)
-
+Vue.use(VueMeta)
  
 
 new Vue({
