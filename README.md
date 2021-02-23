@@ -5,9 +5,13 @@
 
 
  ## TODO: 
--xdai relay node is not submitting std xfer for some reason? Does not see it as pending.. 
+ 
 
-  BUILD Nice little front end w vue table 
+  1) BUILD Nice little front end w vue table 
+  2) perhaps fix validation for packet on node.. whatever 
+  3) build the discord tip bot !  (import 0xbtc )
+
+  
 
  Need to delete DB data that is super old 
  
